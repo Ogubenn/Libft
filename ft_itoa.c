@@ -50,7 +50,7 @@ char	*ft_create_s(char *s, int n, int len, int i)
 		i++;
 		n *= -1;
 	}
-	s[len] = '\0'; //sor
+	s[len] = '\0';
 	len--;
 	while (i <= len)
 	{
@@ -65,6 +65,7 @@ char	*ft_create_s(char *s, int n, int len, int i)
 //koyup - ile çarparak pozitife dönüştürdük.sayımızın 10 a göre modunu
 // aldık kalanı s imizin son indeximize eşitledik.10 a böldük basamak 
 //küçülttük leni azaltıp devam ettik ve bu şekilde dönmeye devam etti.
+
 char	*ft_itoa(int n)
 {
 	int		len;

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//ft_sizes fonksiyonu lenght dönderir ama bizim verdğimiz
+//chara kadar.
 #include "libft.h"
 
 int	ft_sizes(char const *s1, char c1)
@@ -40,6 +42,8 @@ int	ft_sizeb(char const *s3, char c3)
 	}
 	return (i);
 }
+//ft_cs fonksiyonu ise lenin uzunluğu kadar s2 yi ayrı bir 
+//diziye kopyalıyoruz ve yeni diziyi dönderiyoruz.
 
 char	*ft_cs(char const *s2, char c2)
 {
@@ -87,3 +91,9 @@ char	**ft_split(char const *s, char c)
 	final[i] = 0;
 	return (final);
 }
+/*#include<stdio.h>
+int main()
+{
+	char a[] = "Nazlii";
+	printf("%d\n",ft_sizeb(a,'i'));
+}*/
