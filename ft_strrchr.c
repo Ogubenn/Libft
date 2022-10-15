@@ -27,9 +27,3 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	return (0);
 }
-/*#include<stdio.h>
-int main()
-{
-    char a[]="Nazlliiim";
-    printf("%s\n",ft_strrchr(a,'z'));
-}*/

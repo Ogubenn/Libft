@@ -10,90 +10,80 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//ft_sizes fonksiyonu lenght dönderir ama bizim verdğimiz
-//chara kadar.
 #include "libft.h"
 
-int	ft_sizes(char const *s1, char c1)
+static int	ft_word_count(char const *s, int c)
 {
-	int	i;
+	int	index;
+	int	count;
 
-	i = 0;
-	while (s1[i] != c1)
-		i++;
-	return (i);
+	index = 0;
+	count = 0;
+	while (s[index])
+	{
+		if (s[index] && s[index] == c)
+			index++;
+		else
+		{
+			count++;
+			while (s[index] && s[index] != c)
+				index++;
+		}
+	}
+	return (count);
 }
 
-int	ft_sizeb(char const *s3, char c3)
+static char	ft_make_word(char *word, char const *s, int j, int word_ln)
 {
-	int	i;
-	int	j;
+	int	index;
 
-	i = 0;
-	j = 0;
-	while (s3[j] != '\0')
-	{
-		while (s3[j] == c3)
-			j++;
-		if (s3[j] != '\0')
-			i++;
-		while (s3[j] != '\0' && s3[j] != c3)
-			j++;
-	}
-	return (i);
+	index = 0;
+	while (word_ln > 0)
+		word[index++] = s[j - word_ln--];
+	word[index] = 0;
+	return (*word);
 }
-//ft_cs fonksiyonu ise lenin uzunluğu kadar s2 yi ayrı bir 
-//diziye kopyalıyoruz ve yeni diziyi dönderiyoruz.
 
-char	*ft_cs(char const *s2, char c2)
+static char	**ft_split_words(char **res, char const *s, char c, int word_ct)
 {
-	int		i;
-	int		len;
-	char	*ss;
+	int	s_index;
+	int	res_index;
+	int	word_ln;
 
-	i = 0;
-	len = ft_sizes(s2, c2);
-	ss = (char *)malloc(sizeof(char) * (len + 1));
-	while (i < len)
+	res_index = 0;
+	s_index = 0;
+	word_ln = 0;
+	while (s[s_index] && res_index < word_ct)
 	{
-		ss[i] = s2[i];
-		i++;
+		while (s[s_index] && s[s_index] == c)
+			s_index++;
+		while (s[s_index] && s[s_index] != c)
+		{
+			s_index++;
+			word_ln++;
+		}
+		res[res_index] = (char *)malloc(sizeof(char) * (word_ln + 1));
+		if (!res[res_index])
+			return (NULL);
+		ft_make_word(res[res_index], s, s_index, word_ln);
+		word_ln = 0;
+		res_index++;
 	}
-	ss[i] = '\0';
-	return (ss);
+	res[res_index] = 0;
+	return (res);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**final;
-	int		sizeb;
-	int		i;
-	int		j;
+	char	**res;
+	int		word_ct;
 
-	i = 0;
-	j = 0;
-	sizeb = ft_sizeb(s, c);
-	final = (char **)malloc(sizeof(char *) * (sizeb + 1));
-	if (!final)
-		return (0);
-	while (s[j] != '\0')
-	{
-		while (s[j] == c)
-			j++;
-		if (s[j] != '\0')
-		{
-			final[i] = ft_cs(&s[j], c);
-			i++;
-		}
-		while (s[j] != '\0' && s[j] != c)
-			j++;
-	}
-	final[i] = 0;
-	return (final);
+	if (s == NULL)
+		return (NULL);
+	word_ct = ft_word_count(s, c);
+	res = (char **)malloc(sizeof(char *) * (word_ct + 1));
+	if (!res)
+		return (NULL);
+	ft_split_words (res, s, c, word_ct);
+	return (res);
 }
-/*#include<stdio.h>
-int main()
-{
-	char a[] = "Nazlii";
-	printf("%d\n",ft_sizeb(a,'i'));
-}*/

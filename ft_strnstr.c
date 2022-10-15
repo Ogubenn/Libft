@@ -36,10 +36,3 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	}
 	return (0);
 }
-/*#include<stdio.h>
-int main()
-{
-    char a[] = "Nazlii";
-    char b[] = "z";
-    printf("%s\n",ft_strnstr(a,b,7));
-}*/

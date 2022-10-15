@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//strjoin s1 dizisinin sonuna s2 yi ekler.Oluşan str dizisinin,
-//sonuna null ekleyerek tamamlar.mallocla s1+s2+1 kadar yer ayır-
-//mamız lazım.
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -23,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (0);
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (str == NULL)
 		return (NULL);
@@ -39,11 +38,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i + j] = '\0';
 	return (str);
 }
-/*#include<stdio.h>
-int main()
-{
-    char a[] = "nazli";
-    char b[] = "ogu";   
-    printf("%s\n",ft_strjoin(a,b));
-    return 0;
-}*/

@@ -12,19 +12,7 @@
 
 #include "libft.h"
 
-int	ft_isprint(int value)
+int	ft_isprint(int c)
 {
-	if (value >= 32 && value <= 127)
-		return (1);
-	return (0);
+	return (c >= 32 && c <= 126);
 }
-/*#include<stdio.h>
-int main()
-{
-	int a,b,c,d;
-	a = ft_isprint(32);
-	b = ft_isprint(14567467);
-	c = ft_isprint(128);
-	d = ft_isprint(34);
-	printf("%d\n%d\n%d\n%d\n",a,b,c,d);
-}*/

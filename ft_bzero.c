@@ -16,12 +16,3 @@ void	ft_bzero(void *ptr, size_t n)
 {
 	ft_memset(ptr, 0, n);
 }
-/*#include<stdio.h>
-int	main(void)
-{
-	char	a[] = "hece\n";
-	char	b[] = "hece";
-	ft_putstr(a);
-	ft_bzero(a, 3);
-	ft_putstr(a);
-}*/

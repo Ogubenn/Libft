@@ -10,13 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//strtrim stringin baştan sondan geçtiğimiz charı kesmemizi
-//sağlar.Checkset stringde karakter arar.ilk while stringin
-//başından verdiğimiz set stringi ile aynımı diye kontrol 
-//eder.Aynıysa a yı arttırır.2.Whileda son indisten itibaren
-//aynısını yapar.Sonra kesilen indislerden başlayarak strye atar
-//str döndürür.
-
 #include "libft.h"
 
 static int	ft_checkset(char c, char const *set)
@@ -57,37 +50,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str[i] = '\0';
 	return (str);
 }
-/*char	*ft_strtrim(char const *s1, char const *set)
-{
-	char	*temp;
-	int		i;
-	int		j;
-	int		k;
-
-	i = 0;
-	temp = ft_strdup(s1);
-	if (!temp)
-		return (NULL);
-	while (ft_ce(temp[0], set) == 1)
-	{
-		k = i;
-		while (temp[k + 1] != '\0')
-		{
-			temp[k] = temp[k + 1];
-			k++;
-		}
-		temp[k] = '\0';
-	}
-	j = ft_strlen(temp);
-	j--;
-	while (ft_ce(temp[j], set) == 1)
-		temp[j--] = '\0';
-	return (temp);
-}*/
-/*#include<stdio.h>
-int main()
-{
-    char a[] = "oguuuuuuubennnnnnoooo";
-    char b [] = "o";
-    printf("%s\n",ft_strtrim(a,b));
-}*/

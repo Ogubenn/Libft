@@ -30,13 +30,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*#include <string.h>
-#include <stdio.h>
-int	main(void)
-{
-	char		*a = malloc(sizeof(char) * 5);
-	char		*b = malloc(sizeof(char) * 5);
-	const char	*src = "hece";
-    ft_memcpy(a,src,2);
-    printf("%s\n", a);
-}*/

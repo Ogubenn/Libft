@@ -19,13 +19,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-/*#include<stdio.h>
-int main()
-{
-	int a,b,c,d;
-	a = ft_isalnum(50);
-	b = ft_isalnum(9);
-	c = ft_isalnum(66);
-	d = ft_isalnum(99);
-	printf("%d\n%d\n%d\n%d\n",a,b,c,d);
-}*/

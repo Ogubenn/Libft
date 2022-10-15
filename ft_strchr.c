@@ -27,9 +27,3 @@ char	*ft_strchr(const char *str, int c)
 	}
 	return (0);
 }
-/*#include<stdio.h>
-int main()
-{
-    char a[] = "Nazlicimm";
-    printf("%s\n",ft_strchr(a,'i'));
-}*/

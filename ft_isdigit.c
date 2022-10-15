@@ -18,12 +18,3 @@ int	ft_isdigit(int value)
 		return (1);
 	return (0);
 }
-/*#include <stdio.h>
-int	main(void)
-{
-	int	digit;
-	int	digit2;
-	digit = ft_isdigit(48);
-	digit2 = ft_isdigit(47);
-	printf("%d %d", digit, digit2);
-}*/

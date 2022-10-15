@@ -26,11 +26,3 @@ void	*ft_memset(void *ptr, int c, size_t n)
 	}
 	return (ptr);
 }
-/*#include<stdio.h>
-
-int	main(void)
-{
-	char	a[] = "nazli";
-	ft_memset(a, 'o', 2);
-	printf("%s\n",a);
-}*/

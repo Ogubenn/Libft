@@ -38,10 +38,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * s);
 }
-/*#include<stdio.h>
-int main()
-{
-    char a [] ="    -2243";
-	printf("%d\n",ft_atoi(a));
-    
-}*/

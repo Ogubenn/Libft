@@ -29,10 +29,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (*p1 - *p2);
 }
-/*#include<stdio.h>
-int main()
-{
-    char a[] = "Nazliicimm";
-    char b[] = "Nazliicim";
-    printf("%d\n",ft_memcmp(a,b,11));
-}*/

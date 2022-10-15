@@ -10,29 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//calloc malloctan farklı olarak ramde ayırdığımız 
-//değerleri korumaz.
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	char	*d;
 
-	d = (char *)malloc(size * nmemb);
-	while (nmemb > 0)
+	d = (char *)malloc(size * count);
+	while (count > 0)
 	{
 		*d = '\0';
 		d++;
-		nmemb--;
+		count--;
 	}
 	return (d);
 }
-/*#include <stdio.h>
-int main()
-{
-	int *a;
-	a = malloc(30 * sizeof(int));
-	//a = calloc(30 , sizeof(int));
-	a[1] = 5;
-	printf("%d\n",a[1]);
-}*/

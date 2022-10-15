@@ -18,12 +18,3 @@ int	ft_isalpha(int value)
 		return (1);
 	return (0);
 }
-/*#include<stdio.h>
-int main()
-{
-	printf("%d\n",ft_isalpha(68));
-	printf("%d\n",ft_isalpha(97));
-	printf("%d\n",ft_isalpha(7));
-	printf("%d\n",ft_isalpha(24));
-	
-}*/

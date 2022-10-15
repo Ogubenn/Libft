@@ -29,10 +29,3 @@ char	*ft_strdup(const char *str)
 	string[i] = '\0';
 	return (string);
 }
-/*#include <stdio.h>
-int	main(void)
-{
-	char a[] = "Nazlii";
-    printf("%s\n",ft_strdup(a));
-    return 0;
-}*/

@@ -26,12 +26,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*#include<stdio.h>
-int	main(void)
-{
-	char	*a = malloc(sizeof(char) * 5);
-	char	*b = malloc(sizeof(char) * 5);
-	char	*src = "ogu";
-    ft_memmove(b ,src , 4);
-    printf("%s\n",a);
-}*/

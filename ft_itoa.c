@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// ft_len fonksiyonu girilen int değerinin basamak sayısını
-//hesaplamak için oluşnuş fonk.itoa n tam sayısını karakter
-//dizisine döünştürür.
 #include "libft.h"
 
 int	ft_len(int m)
@@ -60,11 +57,6 @@ char	*ft_create_s(char *s, int n, int len, int i)
 	}
 	return (s);
 }
-//Öncelike verdğimiz n tamsayını len fonksiyonuyla uzunluk
-//ölçtük.Sonra Null durumunu kontrol ettik,negatifse önüne eksi
-//koyup - ile çarparak pozitife dönüştürdük.sayımızın 10 a göre modunu
-// aldık kalanı s imizin son indeximize eşitledik.10 a böldük basamak 
-//küçülttük leni azaltıp devam ettik ve bu şekilde dönmeye devam etti.
 
 char	*ft_itoa(int n)
 {
@@ -80,10 +72,3 @@ char	*ft_itoa(int n)
 	ft_create_s(s, n, len, i);
 	return (s);
 }
-/*#include<stdio.h>
-int main()
-{
-	int a = -4322;
-	printf("%s\n",ft_itoa(a));
-
-}*/

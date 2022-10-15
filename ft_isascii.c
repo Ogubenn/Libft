@@ -18,13 +18,3 @@ int	ft_isascii(int c)
 		return (1);
 	return (0);
 }
-/*#include<stdio.h>
-int main()
-{
-	int a,b,c,d;
-	a = ft_isascii(5);
-	b = ft_isascii(14567467);
-	c = ft_isascii(128);
-	d = ft_isascii(0);
-	printf("%d\n%d\n%d\n%d\n",a,b,c,d);
-}*/
