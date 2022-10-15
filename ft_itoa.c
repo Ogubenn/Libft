@@ -12,63 +12,95 @@
 
 #include "libft.h"
 
-int	ft_len(int m)
+static int	get_length(int nbr)
 {
-	int	i;
+	int	counter;
 
-	i = 0;
-	if (m == -2147483648)
-		return (11);
-	if (m < 0)
+	counter = 0;
+	while (nbr > 9)
 	{
-		i++;
-		m *= -1;
+		counter ++;
+		nbr = nbr / 10;
 	}
-	while (m != 0)
+	if (nbr <= 9)
 	{
-		m = m / 10;
-		i++;
+		counter++;
 	}
-	return (i);
+	return (counter);
 }
 
-char	*ft_create_s(char *s, int n, int len, int i)
+static	int	ft_get_step(int len)
 {
-	if (n == -2147483648)
+	int	step;
+	int	counter;
+
+	counter = 0;
+	step = 1;
+	while (counter < len - 1)
 	{
-		s[0] = '-';
-		s[1] = '2';
-		n = 147483648;
-		i = 2;
+		step *= 10;
+		counter++;
 	}
+	return (step);
+}
+
+static char	*ft_make_str(int n, int len, int step, int sign)
+{
+	int		result;
+	int		index;
+	char	*str;
+
+	index = 0;
+	str = (char *)malloc(sizeof(char) * (len + sign + 1));
+	if (sign > 0)
+		str[index++] = '-';
+	if (sign == 2)
+		str[index++] = '2';
+	while (index < len)
+	{
+		if (n > 9)
+		{
+			result = n / step;
+			n = n % step;
+			step = step / 10;
+			str[index++] = result + 48;
+		}
+		else
+			str[index++] = n + 48;
+	}
+	str[index] = '\0';
+	return (str);
+}
+
+static	int	ft_get_sign(int *sign, int n)
+{
+	int	sign_result;
+
+	sign_result = 0;
 	if (n < 0)
 	{
-		s[i] = '-';
-		i++;
-		n *= -1;
+		if (n == -2147483648)
+		{
+			n = -147483648;
+			sign_result++;
+		}
+		n = -n;
+		sign_result++;
 	}
-	s[len] = '\0';
-	len--;
-	while (i <= len)
-	{
-		s[len] = n % 10 + '0';
-		n /= 10;
-		len--;
-	}
-	return (s);
+	*sign = sign_result;
+	return (n);
 }
 
 char	*ft_itoa(int n)
 {
-	int		len;
-	int		i;
-	char	*s;
+	char	*str;
+	int		length;
+	int		sign;
+	int		step;
 
-	i = 0;
-	len = ft_len(n);
-	s = (char *)malloc(sizeof(char) * (len + 1));
-	if (!s)
-		return (NULL);
-	ft_create_s(s, n, len, i);
-	return (s);
+	n = ft_get_sign(&sign, n);
+	length = get_length(n);
+	step = ft_get_step(length);
+	str = ft_make_str(n, (length + sign), step, sign);
+	return (str);
 }

@@ -14,22 +14,20 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substring;
-	int		i;
+	char	*result;
+	size_t	length;
 
-	i = 0;
-	if (!s)
+	if (s == NULL)
 		return (NULL);
-	substring = (char *)malloc(sizeof(char) * (len + 1));
-	if (! substring)
+	length = ft_strlen((char *)s);
+	if (start > length)
+		return (ft_strdup(""));
+	if (length - start >= len)
+		result = (char *)malloc((len + 1) * sizeof(char));
+	else
+		result = (char *)malloc((length - start + 1) * sizeof(char));
+	if (result == NULL)
 		return (NULL);
-	while (len > 0)
-	{
-		substring[i] = s[start];
-		i++;
-		start++;
-		len--;
-	}
-	substring[i] = '\0';
-	return (substring);
+	ft_strlcpy(result, (char *)&s[start], (len + 1));
+	return (result);
 }
