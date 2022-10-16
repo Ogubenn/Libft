@@ -12,95 +12,55 @@
 
 #include "libft.h"
 
-static int	get_length(int nbr)
+static long	ft_digitnb(int n)
 {
-	int	counter;
+	long		size;
 
-	counter = 0;
-	while (nbr > 9)
-	{
-		counter ++;
-		nbr = nbr / 10;
-	}
-	if (nbr <= 9)
-	{
-		counter++;
-	}
-	return (counter);
-}
-
-static	int	ft_get_step(int len)
-{
-	int	step;
-	int	counter;
-
-	counter = 0;
-	step = 1;
-	while (counter < len - 1)
-	{
-		step *= 10;
-		counter++;
-	}
-	return (step);
-}
-
-static char	*ft_make_str(int n, int len, int step, int sign)
-{
-	int		result;
-	int		index;
-	char	*str;
-
-	index = 0;
-	str = (char *)malloc(sizeof(char) * (len + sign + 1));
-	if (sign > 0)
-		str[index++] = '-';
-	if (sign == 2)
-		str[index++] = '2';
-	while (index < len)
-	{
-		if (n > 9)
-		{
-			result = n / step;
-			n = n % step;
-			step = step / 10;
-			str[index++] = result + 48;
-		}
-		else
-			str[index++] = n + 48;
-	}
-	str[index] = '\0';
-	return (str);
-}
-
-static	int	ft_get_sign(int *sign, int n)
-{
-	int	sign_result;
-
-	sign_result = 0;
+	if (n == 0)
+		return (1);
+	size = 0;
 	if (n < 0)
 	{
-		if (n == -2147483648)
-		{
-			n = -147483648;
-			sign_result++;
-		}
+		size++;
 		n = -n;
-		sign_result++;
 	}
-	*sign = sign_result;
-	return (n);
+	while (n != 0)
+	{
+		n /= 10;
+		size++;
+	}
+	return (size++);
+}
+
+static int	ft_sign(int n)
+{
+	if (n < 0)
+		return (1);
+	return (0);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		length;
-	int		sign;
-	int		step;
+	long		n_long;
+	long		length;
+	char		*fresh;
 
-	n = ft_get_sign(&sign, n);
-	length = get_length(n);
-	step = ft_get_step(length);
-	str = ft_make_str(n, (length + sign), step, sign);
-	return (str);
+	n_long = n;
+	length = ft_digitnb(n_long);
+	fresh = (char *)malloc((length + 1) * sizeof(char));
+	if (!fresh)
+		return (NULL);
+	fresh[length] = '\0';
+	length--;
+	if (n_long < 0)
+		n_long = -n_long;
+	while (length >= 0)
+	{
+		fresh[length] = (n_long % 10) + '0';
+		length--;
+		n_long /= 10;
+	}
+	if (ft_sign(n))
+		fresh[0] = '-';
+	return (fresh);
 }
