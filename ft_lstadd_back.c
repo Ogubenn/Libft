@@ -26,3 +26,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		last->next = new;
 	}
 }
+/*#include <stdio.h>
+int		main(void)
+{
+	t_list	*first;
+	t_list	*list;
+	
+	first = ft_lstnew("abc");
+	list = ft_lstnew("test");
+	ft_lstadd_back(&list, first);
+	printf("%s\n",(char *)list->content);
+	
+}*/
